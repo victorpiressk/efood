@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 import { cores } from '../../globalStyles'
-import { TagContainer } from '../Tag/styles'
-import { Props } from '.'
+import { TagContainer } from '../../containers/Tag/styles'
 
-export const Card = styled.div<
-  Omit<Props, 'image' | 'infos' | 'title' | 'score' | 'description'>
->`
+export const CardContainer = styled.div`
   position: relative;
   border: 1px solid ${cores.salmao};
   background-color: ${cores.branca};
@@ -17,7 +14,7 @@ export const Card = styled.div<
 
   .container {
     padding: 8px;
-    padding-bottom: ${(props) => (props.variant === 'home' ? '12px' : '8px')};
+    padding-bottom: 12px;
   }
 
   p {

@@ -1,5 +1,5 @@
 import Header from '../../components/Header'
-import ProductsList from '../../components/ProductsList'
+import RestaurantsList from '../../containers/RestaurantsList'
 import Food from '../../models/Food'
 import imgSushi from '../../assets/images/sushi.png'
 import imgTrattoria from '../../assets/images/trattoria.png'
@@ -64,7 +64,7 @@ const foodHome: Food[] = [
 const Home = () => (
   <>
     <Header variant="home" />
-    <ProductsList variant="home" foods={foodHome} />
+    <RestaurantsList foods={foodHome} />
   </>
 )
 

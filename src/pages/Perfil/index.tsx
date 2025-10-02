@@ -1,6 +1,6 @@
 import Header from '../../components/Header'
 import Banner from '../../components/Banner'
-import ProductsList from '../../components/ProductsList'
+import ProductsList from '../../containers/ProductsList'
 import Food from '../../models/Food'
 import imgPizza from '../../assets/images/pizza.png'
 
@@ -65,7 +65,7 @@ const Perfil = () => (
   <>
     <Header variant="perfil" />
     <Banner />
-    <ProductsList variant="perfil" foods={foodPerfil} />
+    <ProductsList foods={foodPerfil} />
   </>
 )
 
