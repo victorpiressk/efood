@@ -4,7 +4,8 @@ import { cores } from '../../globalStyles'
 import { Props } from '.'
 
 export const ButtonContainer = styled.button<Props>`
-  width: 100%;
+  width: ${(props) => (props.fullWidth === true ? '100%' : '')};
+  display: inline-block;
   border: none;
   padding: 4px 6px;
   background-color: ${(props) =>

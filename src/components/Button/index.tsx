@@ -7,9 +7,18 @@ export type Props = {
   onClick?: () => void
   children: string
   variant: 'home' | 'perfil'
+  fullWidth?: boolean
 }
 
-const Button = ({ type, title, to, onClick, children, variant }: Props) => {
+const Button = ({
+  type,
+  title,
+  to,
+  onClick,
+  children,
+  variant,
+  fullWidth
+}: Props) => {
   if (type === 'button') {
     return (
       <ButtonContainer
@@ -17,6 +26,7 @@ const Button = ({ type, title, to, onClick, children, variant }: Props) => {
         title={title}
         onClick={onClick}
         variant={variant}
+        fullWidth={fullWidth}
       >
         {children}
       </ButtonContainer>
