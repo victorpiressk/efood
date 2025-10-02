@@ -8,6 +8,13 @@ export const CardContainer = styled.div`
     padding: 8px;
   }
 
+  img {
+    max-width: 304px;
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+  }
+
   h3 {
     margin: 8px 0;
     color: ${cores.damasco};

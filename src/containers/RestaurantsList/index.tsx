@@ -1,29 +1,45 @@
-import Food from '../../models/Food'
+import { Food } from '../../pages/Home'
 import CardHome from '../../components/CardHome'
 import { List } from './styles'
 
-export type Props = {
+type Props = {
   foods: Food[]
 }
 
-const ProductsList = ({ foods }: Props) => (
-  <div>
-    <div className="container">
-      <List>
-        {foods.map((food) => (
-          <li key={food.id}>
-            <CardHome
-              image={food.image}
-              infos={food.infos}
-              title={food.title}
-              score={food.score}
-              description={food.description}
-            />
-          </li>
-        ))}
-      </List>
-    </div>
-  </div>
-)
+const ProductsList = ({ foods }: Props) => {
+  const getFoodTags = (food: Food) => {
+    const tags = []
 
+    if (food.destacado === true) {
+      tags.push('Destaque da semana')
+    }
+
+    if (food.tipo) {
+      tags.push(food.tipo)
+    }
+
+    return tags
+  }
+
+  return (
+    <div>
+      <div className="container">
+        <List>
+          {foods.map((food) => (
+            <li key={food.id}>
+              <CardHome
+                id={food.id}
+                image={food.capa}
+                infos={getFoodTags(food)}
+                title={food.titulo}
+                score={food.avaliacao}
+                description={food.descricao}
+              />
+            </li>
+          ))}
+        </List>
+      </div>
+    </div>
+  )
+}
 export default ProductsList

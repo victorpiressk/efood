@@ -1,9 +1,9 @@
-import Food from '../../models/Food'
+import { Cardapio } from '../../pages/Home'
 import CardPerfil from '../../components/CardPerfil'
 import { List } from './styles'
 
-export type Props = {
-  foods: Food[]
+type Props = {
+  foods: Cardapio[]
 }
 
 const ProductsList = ({ foods }: Props) => (
@@ -13,10 +13,12 @@ const ProductsList = ({ foods }: Props) => (
         {foods.map((food) => (
           <li key={food.id}>
             <CardPerfil
-              image={food.image}
-              title={food.title}
-              score={food.score}
-              description={food.description}
+              id={food.id}
+              image={food.foto}
+              title={food.nome}
+              description={food.descricao}
+              price={food.preco}
+              portion={food.porcao}
             />
           </li>
         ))}

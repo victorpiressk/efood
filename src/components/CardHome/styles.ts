@@ -1,12 +1,19 @@
 import styled from 'styled-components'
 import { cores } from '../../globalStyles'
-import { TagContainer } from '../../containers/Tag/styles'
+import { TagContainer } from '../Tag/styles'
 
 export const CardContainer = styled.div`
   position: relative;
   border: 1px solid ${cores.salmao};
   background-color: ${cores.branca};
   font-size: 14px;
+
+  > img {
+    max-width: 472px;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 
   ${TagContainer} {
     margin-left: 8px;

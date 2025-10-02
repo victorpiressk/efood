@@ -1,22 +1,38 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { CardContainer } from './styles'
 import Button from '../Button'
 import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
-import imgPizza from '../../assets/images/pizza.png'
 
 export interface ModalState {
   isVisible: boolean
 }
 
 export type Props = {
+  id: number
   image: string
   title: string
-  score: string
   description: string
+  price: number
+  portion: string
 }
 
-const CardPerfil = ({ image, title, description }: Props) => {
+const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const CardPerfil = ({
+  image,
+  title,
+  description,
+  price,
+  portion,
+  id
+}: Props) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -27,13 +43,21 @@ const CardPerfil = ({ image, title, description }: Props) => {
     })
   }
 
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 254) {
+      return descricao.slice(0, 251) + '...'
+    }
+
+    return descricao
+  }
+
   return (
     <>
       <CardContainer>
         <div className="container">
           <img src={image} alt={title} />
           <h3>{title}</h3>
-          <p>{description}</p>
+          <p>{getDescricao(description)}</p>
           <Button
             type="button"
             title="Saiba mais"
@@ -61,20 +85,21 @@ const CardPerfil = ({ image, title, description }: Props) => {
             />
           </header>
           <main>
-            <img src={imgPizza} />
+            <img src={image} />
             <div>
-              <h4>Pizza</h4>
-              <p>
-                A clássica Marguerita: molho de tomate suculento, mussarela
-                derretida, manjericão fresco e um toque de azeite. Sabor e
-                simplicidade!
-              </p>
+              <h4>{title}</h4>
+              <p>{description}</p>
+              <p>Serve: {portion}</p>
               <Button
                 type="button"
                 title="Adicionar ao carrinho"
                 variant="perfil"
               >
-                Adicionar ao carrinho - R$ 60,90
+                <span>
+                  <Link to={`/perfil/${id}`}>
+                    Adicionar ao carrinho - {formataPreco(price)}
+                  </Link>
+                </span>
               </Button>
             </div>
           </main>

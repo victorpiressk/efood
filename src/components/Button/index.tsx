@@ -1,11 +1,12 @@
 import { ButtonContainer, ButtonLink } from './styles'
+import React from 'react'
 
 export type Props = {
   type: 'button' | 'link'
   title: string
   to?: string
   onClick?: () => void
-  children: string
+  children: React.ReactNode
   variant: 'home' | 'perfil'
   fullWidth?: boolean
 }
