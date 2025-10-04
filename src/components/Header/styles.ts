@@ -22,6 +22,7 @@ export const ContainerHeader = styled.div<Props>`
   h2 {
     font-size: ${(props) => (props.variant === 'home' ? '36px' : '18px')};
     font-weight: bold;
+    cursor: ${(props) => (props.variant === 'home' ? '' : 'pointer')};
   }
 `
 

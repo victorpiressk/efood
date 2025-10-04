@@ -12,14 +12,7 @@ const ProductsList = ({ foods }: Props) => (
       <List>
         {foods.map((food) => (
           <li key={food.id}>
-            <CardPerfil
-              id={food.id}
-              image={food.foto}
-              title={food.nome}
-              description={food.descricao}
-              price={food.preco}
-              portion={food.porcao}
-            />
+            <CardPerfil food={food} />
           </li>
         ))}
       </List>

@@ -1,38 +1,30 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { CardContainer } from './styles'
 import Button from '../Button'
 import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
+import { add, open } from '../../store/reducers/cart'
+import { Cardapio } from '../../pages/Home'
 
 export interface ModalState {
   isVisible: boolean
 }
 
-export type Props = {
-  id: number
-  image: string
-  title: string
-  description: string
-  price: number
-  portion: string
+type Props = {
+  food: Cardapio
 }
 
-const formataPreco = (preco = 0) => {
+export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
   }).format(preco)
 }
 
-const CardPerfil = ({
-  image,
-  title,
-  description,
-  price,
-  portion,
-  id
-}: Props) => {
+const CardPerfil = ({ food }: Props) => {
+  const dispatch = useDispatch()
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -51,13 +43,18 @@ const CardPerfil = ({
     return descricao
   }
 
+  const addToCart = () => {
+    dispatch(add(food))
+    dispatch(open())
+  }
+
   return (
     <>
       <CardContainer>
         <div className="container">
-          <img src={image} alt={title} />
-          <h3>{title}</h3>
-          <p>{getDescricao(description)}</p>
+          <img src={food.foto} alt={food.nome} />
+          <h3>{food.nome}</h3>
+          <p>{getDescricao(food.descricao)}</p>
           <Button
             type="button"
             title="Saiba mais"
@@ -85,21 +82,18 @@ const CardPerfil = ({
             />
           </header>
           <main>
-            <img src={image} />
+            <img src={food.foto} />
             <div>
-              <h4>{title}</h4>
-              <p>{description}</p>
-              <p>Serve: {portion}</p>
+              <h4>{food.nome}</h4>
+              <p>{food.descricao}</p>
+              <p>Serve: {food.porcao}</p>
               <Button
                 type="button"
                 title="Adicionar ao carrinho"
                 variant="perfil"
+                onClick={addToCart}
               >
-                <span>
-                  <Link to={`/perfil/${id}`}>
-                    Adicionar ao carrinho - {formataPreco(price)}
-                  </Link>
-                </span>
+                <span>Adicionar ao carrinho - {formataPreco(food.preco)}</span>
               </Button>
             </div>
           </main>
