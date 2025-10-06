@@ -1,4 +1,3 @@
-import { Food } from '../../pages/Home'
 import { ContainerBanner } from './styles'
 
 type Props = {

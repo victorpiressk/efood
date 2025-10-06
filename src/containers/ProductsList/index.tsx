@@ -1,4 +1,3 @@
-import { Cardapio } from '../../pages/Home'
 import CardPerfil from '../../components/CardPerfil'
 import { List } from './styles'
 

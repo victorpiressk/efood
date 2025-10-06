@@ -5,7 +5,6 @@ import Button from '../Button'
 import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
 import { add, open } from '../../store/reducers/cart'
-import { Cardapio } from '../../pages/Home'
 
 export interface ModalState {
   isVisible: boolean

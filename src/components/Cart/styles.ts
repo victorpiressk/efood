@@ -3,6 +3,10 @@ import { cores } from '../../globalStyles'
 import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
 import { ButtonContainer } from '../Button/styles'
 
+type InputGroupProps = {
+  maxWidth?: string
+}
+
 export const CartContainer = styled.div`
   position: fixed;
   top: 0;
@@ -47,6 +51,18 @@ export const SideBar = styled.aside`
     width: 100%;
     position: sticky;
     bottom: 0;
+  }
+
+  h4 {
+    font-weight: bold;
+    color: ${cores.damasco};
+    margin-bottom: 16px;
+  }
+
+  .empty-text {
+    line-height: 22px;
+    text-align: center;
+    color: ${cores.branca};
   }
 `
 
@@ -100,5 +116,50 @@ export const CartItem = styled.li`
     bottom: 8px;
     right: 8px;
     cursor: pointer;
+  }
+`
+
+export const FormContainer = styled.div`
+  display: flex;
+  column-gap: 34px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${cores.damasco};
+    margin-bottom: 16px;
+  }
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  flex: auto;
+  max-width: ${(props) => props.maxWidth || 'auto'};
+  margin-bottom: 8px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: ${cores.damasco}
+  }
+
+  input {
+    background-color: ${cores.damasco};
+    border: 1px solid ${cores.damasco};
+    width: 100%;
+    height: 32px;
+    padding: 0 8px;
+
+    &.error {
+      background-color: red;
+    }
+`
+export const FormButtons = styled.div`
+  margin-top: 24px;
+
+  button {
+    margin-bottom: 8px;
   }
 `
