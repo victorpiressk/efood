@@ -1,4 +1,3 @@
-import { Food } from '../../pages/Home'
 import CardHome from '../../components/CardHome'
 import { List } from './styles'
 

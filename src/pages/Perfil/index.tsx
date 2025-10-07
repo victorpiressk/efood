@@ -3,14 +3,17 @@ import Header from '../../components/Header'
 import Banner from '../../components/Banner'
 import ProductsList from '../../containers/ProductsList'
 import { useGetFoodQuery } from '../../services/api'
+import Loader from '../../components/Loader'
+
+type FoodParams = {
+  id: string
+}
 
 const Perfil = () => {
-  const { id } = useParams()
-  const { data: food } = useGetFoodQuery(id!)
+  const { id } = useParams() as FoodParams
+  const { data: food } = useGetFoodQuery(id)
 
-  if (!food) {
-    return <h3>Carregando...</h3>
-  }
+  if (!food) return <Loader />
 
   return (
     <>

@@ -2,13 +2,14 @@ import { ButtonContainer, ButtonLink } from './styles'
 import React from 'react'
 
 export type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
   children: React.ReactNode
   variant: 'home' | 'perfil'
   fullWidth?: boolean
+  disabled?: boolean
 }
 
 const Button = ({
@@ -18,16 +19,18 @@ const Button = ({
   onClick,
   children,
   variant,
-  fullWidth
+  fullWidth,
+  disabled
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
       <ButtonContainer
-        type="button"
+        type={type}
         title={title}
         onClick={onClick}
         variant={variant}
         fullWidth={fullWidth}
+        disabled={disabled}
       >
         {children}
       </ButtonContainer>
