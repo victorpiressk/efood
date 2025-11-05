@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { cores } from '../../globalStyles'
-import { Props } from '.'
 
-export const ButtonContainer = styled.button<Props>`
+export const ButtonContainer = styled.button<ButtonProps>`
   width: ${(props) => (props.fullWidth === true ? '100%' : '')};
   display: inline-block;
   border: none;
@@ -17,7 +16,7 @@ export const ButtonContainer = styled.button<Props>`
   cursor: pointer;
 `
 
-export const ButtonLink = styled(Link)<Props>`
+export const ButtonLink = styled(Link)<ButtonProps>`
   width: 100%;
   border: none;
   padding: 4px 6px;

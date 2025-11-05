@@ -1,9 +1,6 @@
 import { ContainerBanner } from './styles'
 
-type Props = {
-  food: Food
-}
-const Banner = ({ food }: Props) => {
+const Banner = ({ food }: BannerProps) => {
   return (
     <ContainerBanner style={{ backgroundImage: `url(${food.capa})` }}>
       <div className="container">

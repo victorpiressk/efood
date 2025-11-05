@@ -3,10 +3,6 @@ import { cores } from '../../globalStyles'
 import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
 import { ButtonContainer } from '../Button/styles'
 
-type InputGroupProps = {
-  maxWidth?: string
-}
-
 export const CartContainer = styled.div`
   position: fixed;
   top: 0;

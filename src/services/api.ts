@@ -5,10 +5,10 @@ const api = createApi({
     baseUrl: 'https://api-ebac.vercel.app/api/efood'
   }),
   endpoints: (builder) => ({
-    getRestaurants: builder.query<Food[], void>({
+    getRestaurants: builder.query<Restaurant[], void>({
       query: () => 'restaurantes'
     }),
-    getFood: builder.query<Food, string>({
+    getFood: builder.query<Restaurant, string>({
       query: (id) => `restaurantes/${id}`
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({

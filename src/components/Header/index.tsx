@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
 
-export type Props = {
-  variant: 'home' | 'perfil'
-}
-
-const Header = ({ variant }: Props) => {
+const Header = ({ variant }: VariantProps) => {
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
 

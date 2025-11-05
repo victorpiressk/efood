@@ -1,16 +1,4 @@
 import { ButtonContainer, ButtonLink } from './styles'
-import React from 'react'
-
-export type Props = {
-  type: 'button' | 'link' | 'submit'
-  title: string
-  to?: string
-  onClick?: () => void
-  children: React.ReactNode
-  variant: 'home' | 'perfil'
-  fullWidth?: boolean
-  disabled?: boolean
-}
 
 const Button = ({
   type,
@@ -21,7 +9,7 @@ const Button = ({
   variant,
   fullWidth,
   disabled
-}: Props) => {
+}: ButtonProps) => {
   if (type === 'button' || type === 'submit') {
     return (
       <ButtonContainer

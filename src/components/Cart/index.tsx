@@ -7,7 +7,7 @@ import Button from '../Button'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { close, remove, clear } from '../../store/reducers/cart'
-import { formataPreco } from '../CardPerfil'
+import { formataPreco } from '../ProductCard'
 import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {

@@ -1,6 +1,6 @@
 import Header from '../../components/Header'
 import Loader from '../../components/Loader'
-import RestaurantsList from '../../containers/RestaurantsList'
+import RestaurantsList from '../../components/RestaurantList'
 import { useGetRestaurantsQuery } from '../../services/api'
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Header variant="home" />
-      <RestaurantsList foods={restaurants} />
+      <RestaurantsList restaurants={restaurants} />
     </>
   )
 }

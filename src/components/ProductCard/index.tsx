@@ -6,14 +6,6 @@ import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
 import { add, open } from '../../store/reducers/cart'
 
-export interface ModalState {
-  isVisible: boolean
-}
-
-type Props = {
-  food: Cardapio
-}
-
 export const formataPreco = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -21,7 +13,7 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const CardPerfil = ({ food }: Props) => {
+const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch()
 
   const [modal, setModal] = useState<ModalState>({
@@ -43,7 +35,7 @@ const CardPerfil = ({ food }: Props) => {
   }
 
   const addToCart = () => {
-    dispatch(add(food))
+    dispatch(add(product))
     dispatch(open())
   }
 
@@ -51,9 +43,9 @@ const CardPerfil = ({ food }: Props) => {
     <>
       <CardContainer>
         <div className="container">
-          <img src={food.foto} alt={food.nome} />
-          <h3>{food.nome}</h3>
-          <p>{getDescricao(food.descricao)}</p>
+          <img src={product.foto} alt={product.nome} />
+          <h3>{product.nome}</h3>
+          <p>{getDescricao(product.descricao)}</p>
           <Button
             type="button"
             title="Saiba mais"
@@ -81,18 +73,20 @@ const CardPerfil = ({ food }: Props) => {
             />
           </header>
           <main>
-            <img src={food.foto} />
+            <img src={product.foto} />
             <div>
-              <h4>{food.nome}</h4>
-              <p>{food.descricao}</p>
-              <p>Serve: {food.porcao}</p>
+              <h4>{product.nome}</h4>
+              <p>{product.descricao}</p>
+              <p>Serve: {product.porcao}</p>
               <Button
                 type="button"
                 title="Adicionar ao carrinho"
                 variant="perfil"
                 onClick={addToCart}
               >
-                <span>Adicionar ao carrinho - {formataPreco(food.preco)}</span>
+                <span>
+                  Adicionar ao carrinho - {formataPreco(product.preco)}
+                </span>
               </Button>
             </div>
           </main>
@@ -108,4 +102,4 @@ const CardPerfil = ({ food }: Props) => {
   )
 }
 
-export default CardPerfil
+export default ProductCard

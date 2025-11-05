@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import headerImg from '../../assets/images/fundo-cabecalho.png'
-import { Props } from '.'
 
-export const ContainerHeader = styled.div<Props>`
+export const ContainerHeader = styled.div<VariantProps>`
   width: 100%;
   height: ${(props) => (props.variant === 'home' ? '384px' : '160px')};
   background-image: url(${headerImg});

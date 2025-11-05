@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type CartState = {
-  items: Cardapio[]
-  isOpen: boolean
-}
-
 const initialState: CartState = {
   items: [],
   isOpen: false

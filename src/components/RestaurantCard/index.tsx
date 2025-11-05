@@ -3,16 +3,14 @@ import iconStar from '../../assets/images/icone-estrela.png'
 import Tag from '../Tag'
 import Button from '../Button'
 
-export type Props = {
-  id: number
-  image: string
-  infos: string[]
-  title: string
-  score: number
-  description: string
-}
-
-const CardHome = ({ image, infos, title, score, description, id }: Props) => {
+const RestaurantsCard = ({
+  image,
+  infos,
+  title,
+  score,
+  description,
+  id
+}: RestaurantCardProps) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 248) {
       return descricao.slice(0, 245) + '...'
@@ -51,4 +49,4 @@ const CardHome = ({ image, infos, title, score, description, id }: Props) => {
   )
 }
 
-export default CardHome
+export default RestaurantsCard
