@@ -7,7 +7,7 @@ import Button from '../Button'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { close, remove, clear } from '../../store/reducers/cart'
-import { formataPreco } from '../ProductCard'
+import { parseToBrl } from '../../utils'
 import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {
@@ -123,7 +123,7 @@ const Cart = () => {
                       <img src={item.foto} alt={item.nome} />
                       <div>
                         <h3>{item.nome}</h3>
-                        <span>{formataPreco(item.preco)}</span>
+                        <span>{parseToBrl(item.preco)}</span>
                       </div>
                       <button
                         type="button"
@@ -133,7 +133,7 @@ const Cart = () => {
                   ))}
                 </ul>
                 <S.Prices>
-                  <span>Valor total</span> {formataPreco(getTotalPrice())}
+                  <span>Valor total</span> {parseToBrl(getTotalPrice())}
                 </S.Prices>
                 <Button
                   type="button"
@@ -293,9 +293,7 @@ const Cart = () => {
 
             {page === 3 && (
               <>
-                <h4>
-                  Pagamento - Valor a pagar {formataPreco(getTotalPrice())}
-                </h4>
+                <h4>Pagamento - Valor a pagar {parseToBrl(getTotalPrice())}</h4>
                 <S.FormContainer>
                   <S.InputGroup>
                     <label htmlFor="cardDisplayName">Nome no cartão</label>

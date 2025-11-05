@@ -5,13 +5,8 @@ import Button from '../Button'
 import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
 import { add, open } from '../../store/reducers/cart'
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
+import { getOverflow } from '../../utils'
+import { parseToBrl } from '../../utils'
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch()
@@ -26,14 +21,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
     })
   }
 
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 254) {
-      return descricao.slice(0, 251) + '...'
-    }
-
-    return descricao
-  }
-
   const addToCart = () => {
     dispatch(add(product))
     dispatch(open())
@@ -45,7 +32,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="container">
           <img src={product.foto} alt={product.nome} />
           <h3>{product.nome}</h3>
-          <p>{getDescricao(product.descricao)}</p>
+          <p>{getOverflow(product.descricao)}</p>
           <Button
             type="button"
             title="Saiba mais"
@@ -84,9 +71,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 variant="perfil"
                 onClick={addToCart}
               >
-                <span>
-                  Adicionar ao carrinho - {formataPreco(product.preco)}
-                </span>
+                <span>Adicionar ao carrinho - {parseToBrl(product.preco)}</span>
               </Button>
             </div>
           </main>

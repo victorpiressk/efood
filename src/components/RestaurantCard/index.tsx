@@ -2,6 +2,7 @@ import { CardContainer, Infos, Title } from './styles'
 import iconStar from '../../assets/images/icone-estrela.png'
 import Tag from '../Tag'
 import Button from '../Button'
+import { getOverflow } from '../../utils'
 
 const RestaurantsCard = ({
   image,
@@ -11,14 +12,6 @@ const RestaurantsCard = ({
   description,
   id
 }: RestaurantCardProps) => {
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 248) {
-      return descricao.slice(0, 245) + '...'
-    }
-
-    return descricao
-  }
-
   return (
     <CardContainer>
       <img src={image} alt={title} />
@@ -35,7 +28,7 @@ const RestaurantsCard = ({
             <img src={iconStar} alt="Icone de estrela" />
           </div>
         </Title>
-        <p>{getDescricao(description)}</p>
+        <p>{getOverflow(description)}</p>
         <Button
           to={`/perfil/${id}`}
           type="link"
