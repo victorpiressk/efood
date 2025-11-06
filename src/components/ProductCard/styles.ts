@@ -1,15 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../globalStyles'
+import { breakpoints, cores } from '../../globalStyles'
 
 export const CardContainer = styled.div`
   background-color: ${cores.salmao};
-
-  .container {
-    padding: 8px;
-  }
+  padding: 8px;
 
   img {
-    max-width: 304px;
     width: 100%;
     height: 167px;
     object-fit: cover;
@@ -91,5 +87,18 @@ export const ModalContent = styled.div`
     font-size: 14px;
     line-height: 22px;
     color: ${cores.branca};
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    height: auto;
+
+    main {
+      display: block;
+
+      img {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
   }
 `

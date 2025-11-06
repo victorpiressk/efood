@@ -1,4 +1,4 @@
-import { CardContainer, Infos, Title } from './styles'
+import { CardContainer, ContentContainer, Infos, Title } from './styles'
 import iconStar from '../../assets/images/icone-estrela.png'
 import Tag from '../Tag'
 import Button from '../Button'
@@ -20,7 +20,7 @@ const RestaurantsCard = ({
           <Tag key={info}>{info}</Tag>
         ))}
       </Infos>
-      <div className="container">
+      <ContentContainer>
         <Title>
           <h3>{title}</h3>
           <div>
@@ -37,7 +37,7 @@ const RestaurantsCard = ({
         >
           Saiba mais
         </Button>
-      </div>
+      </ContentContainer>
     </CardContainer>
   )
 }

@@ -29,24 +29,22 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <>
       <CardContainer>
-        <div className="container">
-          <img src={product.foto} alt={product.nome} />
-          <h3>{product.nome}</h3>
-          <p>{getOverflow(product.descricao)}</p>
-          <Button
-            type="button"
-            title="Saiba mais"
-            variant="perfil"
-            fullWidth={true}
-            onClick={() => {
-              setModal({
-                isVisible: true
-              })
-            }}
-          >
-            Adicionar ao carrinho
-          </Button>
-        </div>
+        <img src={product.foto} alt={product.nome} />
+        <h3>{product.nome}</h3>
+        <p>{getOverflow(product.descricao)}</p>
+        <Button
+          type="button"
+          title="Saiba mais"
+          variant="perfil"
+          fullWidth={true}
+          onClick={() => {
+            setModal({
+              isVisible: true
+            })
+          }}
+        >
+          Adicionar ao carrinho
+        </Button>
       </CardContainer>
       <Modal className={modal.isVisible ? 'visivel' : ''}>
         <ModalContent className="container">

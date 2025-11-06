@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../globalStyles'
+import { breakpoints, cores } from '../../globalStyles'
 import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
 import { ButtonContainer } from '../Button/styles'
 
@@ -59,6 +59,10 @@ export const SideBar = styled.aside`
     line-height: 22px;
     text-align: center;
     color: ${cores.branca};
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    max-width: 300px;
   }
 `
 

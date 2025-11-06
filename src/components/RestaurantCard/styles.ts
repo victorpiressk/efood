@@ -19,15 +19,14 @@ export const CardContainer = styled.div`
     margin-left: 8px;
   }
 
-  .container {
-    padding: 8px;
-    padding-bottom: 12px;
-  }
-
   p {
     line-height: 22px;
     margin-bottom: 16px;
   }
+`
+export const ContentContainer = styled.div`
+  padding: 8px;
+  padding-bottom: 12px;
 `
 
 export const Title = styled.div`

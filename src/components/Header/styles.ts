@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import headerImg from '../../assets/images/fundo-cabecalho.png'
+import { breakpoints } from '../../globalStyles'
 
 export const ContainerHeader = styled.div<VariantProps>`
   width: 100%;
@@ -16,12 +17,20 @@ export const ContainerHeader = styled.div<VariantProps>`
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
+    @media (max-width: ${breakpoints.mobile}) {
+      gap: 12px;
+    }
   }
 
   h2 {
     font-size: ${(props) => (props.variant === 'home' ? '36px' : '18px')};
     font-weight: bold;
     cursor: ${(props) => (props.variant === 'home' ? '' : 'pointer')};
+
+    @media (max-width: ${breakpoints.mobile}) {
+      font-size: ${(props) => (props.variant === 'home' ? '24px' : '14px')};
+    }
   }
 `
 

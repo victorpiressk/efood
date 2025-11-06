@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../globalStyles'
+import { breakpoints, cores } from '../../globalStyles'
 
 export const ContainerBanner = styled.div`
   position: relative;
@@ -39,5 +39,9 @@ export const ContainerBanner = styled.div`
   h3 {
     font-weight: bold;
     margin-top: 152px;
+
+    @media (max-width: ${breakpoints.mobile}) {
+      font-size: 24px;
+    }
   }
 `
