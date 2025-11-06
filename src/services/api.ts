@@ -8,10 +8,10 @@ const api = createApi({
     getRestaurants: builder.query<Restaurant[], void>({
       query: () => 'restaurantes'
     }),
-    getFood: builder.query<Restaurant, string>({
+    getRestaurant: builder.query<Restaurant, string>({
       query: (id) => `restaurantes/${id}`
     }),
-    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
+    makePurchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
         method: 'POST',
@@ -21,6 +21,10 @@ const api = createApi({
   })
 })
 
-export const { useGetRestaurantsQuery, useGetFoodQuery, usePurchaseMutation } =
-  api
+export const {
+  useGetRestaurantsQuery,
+  useGetRestaurantQuery,
+  useMakePurchaseMutation
+} = api
+
 export default api

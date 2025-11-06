@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../globalStyles'
+import { colors } from '../../globalStyles'
 import { TagContainer } from '../Tag/styles'
 
 export const CardContainer = styled.div`
   position: relative;
-  border: 1px solid ${cores.salmao};
-  background-color: ${cores.branca};
+  border: 1px solid ${colors.salmon};
+  background-color: ${colors.white};
   font-size: 14px;
 
   > img {

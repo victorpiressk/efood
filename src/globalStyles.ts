@@ -1,19 +1,22 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  branca: '#fff',
-  creme: '#FFF8F2',
-  damasco: '#FFEBD9',
-  salmao: '#E66767'
+// 🎨 Paleta de cores
+export const colors = {
+  white: '#fff',
+  cream: '#FFF8F2',
+  apricot: '#FFEBD9',
+  salmon: '#E66767'
 }
 
+// 📱 Breakpoints de responsividade
 export const breakpoints = {
   desktop: '1024px',
   tablet: '768px',
   mobile: '640px'
 }
 
-export const EstiloGlobal = createGlobalStyle`
+// 🌍 Estilos globais
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -21,11 +24,11 @@ export const EstiloGlobal = createGlobalStyle`
     font-family: "Roboto", sans-serif;
     list-style: none;
     text-decoration: none;
-    color: ${cores.salmao};
+    color: ${colors.salmon};
   }
 
   body {
-    background-color: ${cores.creme};
+    background-color: ${colors.cream};
   }
 
   .container {

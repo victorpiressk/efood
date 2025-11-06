@@ -1,10 +1,10 @@
-import { CardContainer, ContentContainer, Infos, Title } from './styles'
-import iconStar from '../../assets/images/icone-estrela.png'
 import Tag from '../Tag'
 import Button from '../Button'
-import { getOverflow } from '../../utils'
+import { truncateText } from '../../utils'
+import iconStar from '../../assets/images/icone-estrela.png'
+import * as S from './styles'
 
-const RestaurantsCard = ({
+const RestaurantCard = ({
   image,
   infos,
   title,
@@ -13,22 +13,22 @@ const RestaurantsCard = ({
   id
 }: RestaurantCardProps) => {
   return (
-    <CardContainer>
+    <S.CardContainer>
       <img src={image} alt={title} />
-      <Infos>
+      <S.Infos>
         {infos.map((info) => (
           <Tag key={info}>{info}</Tag>
         ))}
-      </Infos>
-      <ContentContainer>
-        <Title>
+      </S.Infos>
+      <S.ContentContainer>
+        <S.Title>
           <h3>{title}</h3>
           <div>
             <span>{score}</span>
             <img src={iconStar} alt="Icone de estrela" />
           </div>
-        </Title>
-        <p>{getOverflow(description)}</p>
+        </S.Title>
+        <p>{truncateText(description)}</p>
         <Button
           to={`/perfil/${id}`}
           type="link"
@@ -37,9 +37,9 @@ const RestaurantsCard = ({
         >
           Saiba mais
         </Button>
-      </ContentContainer>
-    </CardContainer>
+      </S.ContentContainer>
+    </S.CardContainer>
   )
 }
 
-export default RestaurantsCard
+export default RestaurantCard

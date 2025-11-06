@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../globalStyles'
-import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
+import { breakpoints, colors } from '../../globalStyles'
+import trashIcon from '../../assets/images/lixeira-de-reciclagem.png'
 import { ButtonContainer } from '../Button/styles'
 
 export const CartContainer = styled.div`
@@ -30,7 +30,7 @@ export const Overlay = styled.div`
 
 export const SideBar = styled.aside`
   position: relative;
-  background-color: ${cores.salmao};
+  background-color: ${colors.salmon};
   z-index: 1;
   padding: 32px 8px 8px 8px;
   max-width: 360px;
@@ -51,14 +51,14 @@ export const SideBar = styled.aside`
 
   h4 {
     font-weight: bold;
-    color: ${cores.damasco};
+    color: ${colors.apricot};
     margin-bottom: 16px;
   }
 
   .empty-text {
     line-height: 22px;
     text-align: center;
-    color: ${cores.branca};
+    color: ${colors.white};
   }
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -74,15 +74,16 @@ export const Prices = styled.p`
   margin-bottom: 16px;
   font-size: 14px;
   font-weight: bold;
-  color: ${cores.damasco};
+  color: ${colors.apricot};
+
   span {
-    color: ${cores.damasco};
+    color: ${colors.apricot};
   }
 `
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.damasco};
+  background-color: ${colors.apricot};
   padding: 8px;
   margin-bottom: 12px;
   position: relative;
@@ -98,17 +99,17 @@ export const CartItem = styled.li`
     margin-bottom: 16px;
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.salmao};
+    color: ${colors.salmon};
   }
 
   span {
     font-size: 14px;
-    color: ${cores.salmao};
+    color: ${colors.salmon};
   }
 
   button {
     border: none;
-    background-image: url(${lixeira});
+    background-image: url(${trashIcon});
     background-color: transparent;
     height: 16px;
     width: 16px;
@@ -128,7 +129,7 @@ export const FormContainer = styled.div`
   p {
     font-size: 14px;
     line-height: 22px;
-    color: ${cores.damasco};
+    color: ${colors.apricot};
     margin-bottom: 16px;
   }
 `
@@ -142,12 +143,12 @@ export const InputGroup = styled.div<InputGroupProps>`
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
-    color: ${cores.damasco}
+    color: ${colors.apricot};
   }
 
   input {
-    background-color: ${cores.damasco};
-    border: 1px solid ${cores.damasco};
+    background-color: ${colors.apricot};
+    border: 1px solid ${colors.apricot};
     width: 100%;
     height: 32px;
     padding: 0 8px;
@@ -155,7 +156,9 @@ export const InputGroup = styled.div<InputGroupProps>`
     &.error {
       background-color: red;
     }
+  }
 `
+
 export const FormButtons = styled.div`
   margin-top: 24px;
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../globalStyles'
+import { breakpoints, colors } from '../../globalStyles'
 
 export const CardContainer = styled.div`
-  background-color: ${cores.salmao};
+  background-color: ${colors.salmon};
   padding: 8px;
 
   img {
@@ -13,13 +13,13 @@ export const CardContainer = styled.div`
 
   h3 {
     margin: 8px 0;
-    color: ${cores.damasco};
+    color: ${colors.apricot};
     font-size: 18px;
     font-weight: bold;
   }
 
   p {
-    color: ${cores.damasco};
+    color: ${colors.apricot};
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 8px;
@@ -55,7 +55,7 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
   height: 344px;
-  background-color: ${cores.salmao};
+  background-color: ${colors.salmon};
   padding: 8px;
 
   header {
@@ -79,14 +79,14 @@ export const ModalContent = styled.div`
   h4 {
     font-size: 18px;
     font-weight: bold;
-    color: ${cores.branca};
+    color: ${colors.white};
   }
 
   p {
     margin: 16px 0;
     font-size: 14px;
     line-height: 22px;
-    color: ${cores.branca};
+    color: ${colors.white};
   }
 
   @media (max-width: ${breakpoints.mobile}) {

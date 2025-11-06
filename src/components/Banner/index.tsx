@@ -1,13 +1,13 @@
-import { ContainerBanner } from './styles'
+import { BannerContainer } from './styles'
 
-const Banner = ({ food }: BannerProps) => {
+const Banner = ({ restaurant }: BannerProps) => {
   return (
-    <ContainerBanner style={{ backgroundImage: `url(${food.capa})` }}>
+    <BannerContainer style={{ backgroundImage: `url(${restaurant.capa})` }}>
       <div className="container">
-        <span>{food.tipo}</span>
-        <h3>{food.titulo}</h3>
+        <span>{restaurant.tipo}</span>
+        <h3>{restaurant.titulo}</h3>
       </div>
-    </ContainerBanner>
+    </BannerContainer>
   )
 }
 

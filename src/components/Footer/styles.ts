@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { cores } from '../../globalStyles'
+import { colors } from '../../globalStyles'
 
 export const ContainerFooter = styled.div`
   padding: 40px;
-  background-color: ${cores.damasco};
+  background-color: ${colors.apricot};
   font-size: 10px;
 
   .container {

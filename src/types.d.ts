@@ -1,15 +1,18 @@
 // ====================
 // 📦 Tipos de dados
 // ====================
-declare interface Cardapio {
-  foto: string
-  preco: number
+
+// 🍽️ Cardápio (menu item)
+declare interface MenuItem {
   id: number
   nome: string
   descricao: string
+  foto: string
   porcao: string
+  preco: number
 }
 
+// 🏪 Restaurante
 declare type Restaurant = {
   id: number
   titulo: string
@@ -18,16 +21,18 @@ declare type Restaurant = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: Cardapio[]
+  cardapio: MenuItem[]
 }
 
+// 🛒 Produto genérico
 declare type Product = {
   id: number
   price: number
 }
 
+// 🛍️ Carrinho
 declare type CartState = {
-  items: Cardapio[]
+  items: MenuItem[]
   isOpen: boolean
 }
 
@@ -72,13 +77,13 @@ declare type ButtonProps = {
   to?: string
   onClick?: () => void
   children: React.ReactNode
-  variant: 'home' | 'perfil'
+  variant: 'home' | 'profile'
   fullWidth?: boolean
   disabled?: boolean
 }
 
 declare type BannerProps = {
-  food: Restaurant
+  restaurant: Restaurant
 }
 
 declare type RestaurantCardProps = {
@@ -91,7 +96,7 @@ declare type RestaurantCardProps = {
 }
 
 declare type ProductCardProps = {
-  product: Cardapio
+  product: MenuItem
 }
 
 declare type TagProps = {
@@ -103,7 +108,7 @@ declare type InputGroupProps = {
 }
 
 declare type ProductListProps = {
-  products: Cardapio[]
+  products: MenuItem[]
 }
 
 declare type RestaurantListProps = {
@@ -122,5 +127,5 @@ declare interface ModalState {
 }
 
 declare type VariantProps = {
-  variant: 'home' | 'perfil'
+  variant: 'home' | 'profile'
 }

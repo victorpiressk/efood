@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../globalStyles'
+import { breakpoints, colors } from '../../globalStyles'
 
-export const ContainerBanner = styled.div`
+export const BannerContainer = styled.div`
   position: relative;
   width: 100%;
   height: 280px;
@@ -29,7 +29,7 @@ export const ContainerBanner = styled.div`
 
   h3,
   span {
-    color: ${cores.branca};
+    color: ${colors.white};
   }
 
   span {

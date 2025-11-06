@@ -1,8 +1,8 @@
-import { ContainerFooter, SocialMedia } from './styles'
 import logo from '../../assets/images/logo-efood.png'
 import instagram from '../../assets/images/icone-insta.png'
 import facebook from '../../assets/images/icone-fb.png'
 import twitter from '../../assets/images/icone-tw.png'
+import { ContainerFooter, SocialMedia } from './styles'
 
 const Footer = () => (
   <ContainerFooter>

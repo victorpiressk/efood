@@ -1,4 +1,4 @@
-import CardHome from '../RestaurantCard'
+import RestaurantCard from '../RestaurantCard'
 import { List } from './styles'
 
 const RestaurantList = ({ restaurants }: RestaurantListProps) => {
@@ -22,7 +22,7 @@ const RestaurantList = ({ restaurants }: RestaurantListProps) => {
         <List>
           {restaurants.map((restaurant) => (
             <li key={restaurant.id}>
-              <CardHome
+              <RestaurantCard
                 id={restaurant.id}
                 image={restaurant.capa}
                 infos={getRestaurantTags(restaurant)}

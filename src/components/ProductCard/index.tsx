@@ -2,11 +2,10 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { CardContainer } from './styles'
 import Button from '../Button'
-import { Modal, ModalContent } from './styles'
 import close from '../../assets/images/close.png'
-import { add, open } from '../../store/reducers/cart'
-import { getOverflow } from '../../utils'
-import { parseToBrl } from '../../utils'
+import { addItem, openCart } from '../../store/reducers/cart'
+import { truncateText, formatToBRL } from '../../utils'
+import { Modal, ModalContent } from './styles'
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch()
@@ -22,8 +21,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   }
 
   const addToCart = () => {
-    dispatch(add(product))
-    dispatch(open())
+    dispatch(addItem(product))
+    dispatch(openCart())
   }
 
   return (
@@ -31,11 +30,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <CardContainer>
         <img src={product.foto} alt={product.nome} />
         <h3>{product.nome}</h3>
-        <p>{getOverflow(product.descricao)}</p>
+        <p>{truncateText(product.descricao)}</p>
         <Button
           type="button"
           title="Saiba mais"
-          variant="perfil"
+          variant="profile"
           fullWidth={true}
           onClick={() => {
             setModal({
@@ -66,10 +65,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <Button
                 type="button"
                 title="Adicionar ao carrinho"
-                variant="perfil"
+                variant="profile"
                 onClick={addToCart}
               >
-                <span>Adicionar ao carrinho - {parseToBrl(product.preco)}</span>
+                <span>
+                  Adicionar ao carrinho - {formatToBRL(product.preco)}
+                </span>
               </Button>
             </div>
           </main>

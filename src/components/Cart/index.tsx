@@ -1,34 +1,32 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { IMaskInput } from 'react-imask'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { IMaskInput } from 'react-imask'
 import Button from '../Button'
+import { useMakePurchaseMutation } from '../../services/api'
+import { RootState } from '../../store'
+import { closeCart, removeItem, clearCart } from '../../store/reducers/cart'
+import { formatToBRL } from '../../utils'
 import * as S from './styles'
-import { RootReducer } from '../../store'
-import { close, remove, clear } from '../../store/reducers/cart'
-import { parseToBrl } from '../../utils'
-import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {
   const dispatch = useDispatch()
-  const [page, setpage] = useState(1)
-  const [purchase, { data, isSuccess, isLoading, reset }] =
-    usePurchaseMutation()
-  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const [page, setPage] = useState(1)
+  const [makePurchase, { data, isSuccess, isLoading, reset }] =
+    useMakePurchaseMutation()
+  const { isOpen, items } = useSelector((state: RootState) => state.cart)
 
-  const closeCart = () => {
-    dispatch(close())
+  const handleCloseCart = () => {
+    dispatch(closeCart())
   }
 
   const getTotalPrice = () => {
-    return items.reduce((acc, valorAtual) => {
-      return (acc += valorAtual.preco)
-    }, 0)
+    return items.reduce((acc, current) => acc + (current.preco || 0), 0)
   }
 
-  const removeItem = (id: number) => {
-    dispatch(remove(id))
+  const handleRemoveItem = (id: number) => {
+    dispatch(removeItem(id))
   }
 
   const form = useFormik({
@@ -60,7 +58,7 @@ const Cart = () => {
       expiresYear: Yup.string().required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
-      purchase({
+      makePurchase({
         products: items.map((item) => ({
           id: item.id,
           price: item.preco as number
@@ -98,20 +96,20 @@ const Cart = () => {
     return hasError
   }
 
-  const nextPage = () => setpage((current) => current + 1)
-  const prevPage = () => setpage((current) => current - 1)
+  const nextPage = () => setPage((current) => current + 1)
+  const prevPage = () => setPage((current) => current - 1)
 
   const purchaseCompleted = () => {
-    dispatch(clear())
-    setpage(1)
-    dispatch(close())
+    dispatch(clearCart())
+    setPage(1)
+    dispatch(closeCart())
     reset()
     form.resetForm()
   }
 
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
-      <S.Overlay onClick={closeCart} />
+      <S.Overlay onClick={handleCloseCart} />
       <S.SideBar>
         {page === 1 && (
           <>
@@ -123,22 +121,22 @@ const Cart = () => {
                       <img src={item.foto} alt={item.nome} />
                       <div>
                         <h3>{item.nome}</h3>
-                        <span>{parseToBrl(item.preco)}</span>
+                        <span>{formatToBRL(item.preco)}</span>
                       </div>
                       <button
                         type="button"
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => handleRemoveItem(item.id)}
                       />
                     </S.CartItem>
                   ))}
                 </ul>
                 <S.Prices>
-                  <span>Valor total</span> {parseToBrl(getTotalPrice())}
+                  <span>Valor total</span> {formatToBRL(getTotalPrice())}
                 </S.Prices>
                 <Button
                   type="button"
                   title="Clique aqui para continuar com a compra"
-                  variant="perfil"
+                  variant="profile"
                   onClick={nextPage}
                 >
                   Continuar com a compra
@@ -177,8 +175,8 @@ const Cart = () => {
             </S.FormContainer>
             <Button
               type="button"
-              title="Clique aqui para Finalizar pagamento"
-              variant="perfil"
+              title="Finalize payment"
+              variant="profile"
               onClick={purchaseCompleted}
             >
               Concluir
@@ -274,7 +272,7 @@ const Cart = () => {
                   <Button
                     type="button"
                     title="Clique aqui para continuar com o pagamento"
-                    variant="perfil"
+                    variant="profile"
                     onClick={nextPage}
                   >
                     Continuar com o pagamento
@@ -282,7 +280,7 @@ const Cart = () => {
                   <Button
                     type="button"
                     title="Clique aqui para voltar ao carrinho"
-                    variant="perfil"
+                    variant="profile"
                     onClick={prevPage}
                   >
                     Voltar para o carrinho
@@ -293,7 +291,9 @@ const Cart = () => {
 
             {page === 3 && (
               <>
-                <h4>Pagamento - Valor a pagar {parseToBrl(getTotalPrice())}</h4>
+                <h4>
+                  Pagamento - Valor a pagar {formatToBRL(getTotalPrice())}
+                </h4>
                 <S.FormContainer>
                   <S.InputGroup>
                     <label htmlFor="cardDisplayName">Nome no cartão</label>
@@ -372,7 +372,7 @@ const Cart = () => {
                   <Button
                     type="submit"
                     title="Clique aqui para Finalizar pagamento"
-                    variant="perfil"
+                    variant="profile"
                     onClick={form.handleSubmit}
                     disabled={isLoading}
                   >
@@ -383,7 +383,7 @@ const Cart = () => {
                   <Button
                     type="button"
                     title="Clique aqui para voltar a edição de endereço"
-                    variant="perfil"
+                    variant="profile"
                     onClick={prevPage}
                   >
                     Voltar para a edição de endereço
