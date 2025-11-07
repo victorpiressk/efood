@@ -7,7 +7,6 @@ export const ButtonContainer = styled.button<ButtonProps>`
   display: inline-block;
   border: none;
   padding: 8px 12px;
-  border-radius: 4px;
   background-color: ${(props) =>
     props.variant === 'home' ? colors.salmon : colors.apricot};
   color: ${(props) =>
@@ -33,7 +32,6 @@ export const ButtonLink = styled(Link)<ButtonProps>`
   text-decoration: none;
   width: ${(props) => (props.fullWidth ? '100%' : 'auto')};
   padding: 8px 12px;
-  border-radius: 4px;
   background-color: ${(props) =>
     props.variant === 'home' ? colors.salmon : colors.apricot};
   color: ${(props) =>

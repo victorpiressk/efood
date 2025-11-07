@@ -26,7 +26,6 @@ export const CardContainer = styled.div`
 `
 export const ContentContainer = styled.div`
   padding: 8px;
-  padding-bottom: 12px;
 `
 
 export const Title = styled.div`
