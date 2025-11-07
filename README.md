@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# eFood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O **eFood** é um projeto desenvolvido em React com TypeScript que simula um e-commerce de comida, permitindo ao usuário navegar por restaurantes, visualizar cardápios, e adicionar produtos ao carrinho.
 
-## Available Scripts
+## 🛠 Tecnologias Utilizadas
 
-In the project directory, you can run:
+- React
+- TypeScript
+- Redux Toolkit (gerenciamento de estado)
+- React Router (navegação entre páginas)
+- Styled Components (estilização modular)
 
-### `npm start`
+## 💻 Como usar via Fork
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 1. Fork do repositório
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clique no botão Fork no GitHub para criar uma cópia do repositório na sua conta.
 
-### `npm test`
+### 2. Clonar seu fork localmente
+```sh
+git clone https://github.com/<seu-usuario>/efood.git
+cd efood
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Instalar dependências
+```sh
+npm install
+```
 
-### `npm run build`
+### 4. Rodar o projeto em desenvolvimento
+```sh
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 5. Acessar o projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Abra http://localhost:3000 no navegador.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 💡 Funcionalidades
 
-### `npm run eject`
+- Listagem de restaurantes com destaque para restaurantes da semana.
+- Visualização de cardápios de cada restaurante.
+- Modal detalhado para cada produto com informações completas e preço.
+- Adicionar produtos ao carrinho de forma interativa.
+- Carrinho persistente no estado global com Redux Toolkit.
+- Layout responsivo para desktop, tablet e mobile.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🎨 Estilização
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Layout baseado em grid e flexbox.
+- Feedback visual em botões e interações (hover/focus).
+- Harmonização de cores e tipografia para interface limpa e moderna.
+- Uso de Styled Components para modularidade e fácil manutenção.
+- Layout totalmente responsivo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📁 Estrutura de Componentes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **App.tsx** – container principal que gerencia o roteamento e integra o Redux.
+- **pages/Home.tsx** – página inicial que exibe a lista de restaurantes.
+- **pages/Profile.tsx** – página de perfil do restaurante com detalhes do cardápio.
+- **components/Banner/** – componente de banner da página de perfil.
+- **components/Button/**– botão reutilizável com diferentes variantes.
+- **components/Cart/** – carrinho de compras, integrado com Redux.
+- **components/Footer/** – rodapé do site.
+- **components/Header/** – cabeçalho com logo e acesso ao carrinho na página de perfil.
+- **components/Loader/** – componente de loading/spinner.
+- **components/ProductCard/** – cartão de exibição de produto/cardápio individual.
+- **components/ProductList/** – lista de produto/cardápio de um restaurante.
+- **components/RestaurantCard/** – cartão de exibição de restaurante individual.
+- **components/RestaurantList/** – lista de restaurantes.
+- **components/Tag/** – tags informativas (ex.: tipo de restaurante, destaque da semana).
+- **store/** – Redux store e reducers (ex.: cart.ts).
+- **services/api.ts** – funções para requisições à API.
+- **utils/index.ts** – funções utilitárias (ex.: formatação de valores e truncamento de texto).
+- **types.d.ts** – definição e centralização de tipos TypeScript.
+- **globalStyles.ts** – estilos globais e constantes de cores/breakpoints.
